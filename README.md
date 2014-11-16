@@ -1,4 +1,4 @@
-# hypem
+# hypem-stream
 Search and stream music from Hype Machine! Provides a simple, node-friendly
 interface to access Hype Machine's search, art and music download streams. All
 of the strams are lazy so feel free to store as many references as you please.
@@ -7,16 +7,16 @@ of the strams are lazy so feel free to store as many references as you please.
 ## Installation
 For the module:
 
-    $ npm install hypem
+    $ npm install hypem-stream
 
 For the CLI program:
 
-    $ npm install -g hypem
+    $ npm install -g hypem-stream
 
 ## Examples
 ```javascript
 var fs = require('fs');
-var hypem = require('hypem');
+var hypem = require('hypem-stream');
 
 hypem.search('allah las catamaran', function (err, tracks) {
     var track;
@@ -84,7 +84,27 @@ By default it's set to `1`.
 `callback` returns an array of `track`s.
 
 ## CLI
+```
+Usage: hypem [<terms>] [options]
+        <terms> being search criteria (an artist or song, for example).
 
+        -h, --help              Display this screen.
+
+        -l, --list [<p>]        Search for tracks based on input terms. <p> is an
+                                optional integer describing which page to view.
+        -i, --id <id>           Request a single track based on ID.
+
+        -a, --art [<size>]      Grab the artwork stream instead of the
+                                MP3 stream. Size can be "small", "medium" or "large".
+
+        -o, --out <file>        Stream to download into a file. When
+                                unspecified, dumps to STDOUT.
+```
+
+### Examples
+    $ hypem catamaran | mplayer -cache 4096 -
+    $ hypem catamaran --art medium > album.jpeg
+    $ hypem the\ beatles --list 1
 
 ## License
 MIT
