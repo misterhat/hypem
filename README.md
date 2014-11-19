@@ -1,7 +1,7 @@
 # hypem-stream
 Search and stream music from Hype Machine! Provides a simple, node-friendly
 interface to access Hype Machine's search, art and music download streams. All
-of the strams are lazy so feel free to store as many references as you please.
+of the streams are lazy so feel free to store as many references as you please.
 *hypem* also supports the command-line. See the *CLI* section for more details.
 
 ## Installation
@@ -35,7 +35,7 @@ hypem.search('allah las catamaran', function (err, tracks) {
 ## API
 Any stream refered to as *"lazy"* is a reference to
 [lazystream](https://www.npmjs.org/package/lazystream). This means that you can
-accumulate as many as you want in memory without comitting to downloading each,
+accumulate as many as you want in memory without committing to downloading each,
 yet still treat them like vanilla readable streams.
 
 ### track
